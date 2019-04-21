@@ -1,0 +1,25 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8"><title>Focus</title>
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+  <style>.error { border: 2px solid red; }</style>
+</head>
+<body onload="validate()">
+  <label for="email">Enter email:</label>
+  <input id="email" type="text"/>
+  <script>
+    function validate() {
+        const regex = /^\w+@\.\w+$/gm;
+        $('#email').on('keyup', (e) => {
+            let text = $('#email').val();
+            if(!regex.test(text)) {
+                $('input').attr('class', 'error');
+            } else {
+                $('input').removeClass('error');
+            }
+            
+        });
+    }
+  </script>
+</body>
+</html>
